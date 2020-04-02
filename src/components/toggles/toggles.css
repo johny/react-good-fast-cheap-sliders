@@ -1,0 +1,54 @@
+.Toggles {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.Toggles__item {
+  margin: 0.5rem 0;
+}
+
+.Toggles__label {
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 0 1rem;
+  font-weight: 700;
+  color: var(--color-gray);
+  font-size: 2rem;
+}
+
+.Toggles__checkbox--good.react-toggle--checked .react-toggle-track {
+  background-color: var(--color--green);
+}
+
+.Toggles__checkbox--good.react-toggle--checked .react-toggle-thumb {
+  border-color: var(--color--green);
+}
+
+.Toggles__checkbox--good.react-toggle--checked:hover .react-toggle-track {
+  background-color: var(--color--green);
+}
+
+.Toggles__checkbox--fast.react-toggle--checked .react-toggle-track {
+  background-color: var(--color--blue);
+}
+
+.Toggles__checkbox--fast.react-toggle--checked:hover .react-toggle-track {
+  background-color: var(--color--blue);
+}
+
+.Toggles__checkbox--fast.react-toggle--checked .react-toggle-thumb {
+  border-color: var(--color--blue);
+}
+
+.Toggles__checkbox--cheap.react-toggle--checked .react-toggle-track {
+  background-color: var(--color--red);
+}
+
+.Toggles__checkbox--cheap.react-toggle--checked:hover .react-toggle-track {
+  background-color: var(--color--red);
+}
+
+.Toggles__checkbox--cheap.react-toggle--checked .react-toggle-thumb {
+  border-color: var(--color--red);
+}

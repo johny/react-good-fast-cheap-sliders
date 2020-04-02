@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App__header">
-        Good, fast or cheap? Pick two!
+        How do you want it?
       </header>
       <main className="App__main">
         <Toggles state={state} onToggle={flipToggle} />
