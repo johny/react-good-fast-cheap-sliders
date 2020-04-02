@@ -1,29 +1,27 @@
-import React, { createContext } from 'react';
-import './App.css';
+import React, { createContext } from "react";
+import "./App.css";
 
-import { Toggles } from './components/toggles/toggles';
-import { useToggles, TogglesState, ToggleKey } from './hooks/useToggles';
+import { Toggles } from "./components/toggles/toggles";
+import { useToggles, TogglesState, ToggleKey } from "./hooks/useToggles";
 
 export interface AppContextProps {
-  state: TogglesState,
-  flipToggle: (key: ToggleKey) => void
+  state: TogglesState;
+  flipToggle: (key: ToggleKey) => void;
 }
 
-export const AppContext = createContext<AppContextProps|null>(null)
+export const AppContext = createContext<AppContextProps | null>(null);
 
 function App() {
-  const { state, flipToggle } = useToggles()
+  const { state, flipToggle } = useToggles();
 
   const context: AppContextProps = {
     state,
-    flipToggle
-  }
+    flipToggle,
+  };
 
   return (
     <div className="App">
-      <header className="App__header">
-        How do you want it?
-      </header>
+      <header className="App__header">How do you want it?</header>
       <main className="App__main">
         <AppContext.Provider value={context}>
           <Toggles />
