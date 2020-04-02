@@ -1,5 +1,4 @@
 import { useReducer } from 'react'
-import produce from 'immer'
 
 export type ToggleKey = 'good' | 'fast' | 'cheap'
 
@@ -32,15 +31,17 @@ const adjustState = (draftState: TogglesState, key: ToggleKey) => {
   return draftState
 }
 
-const togglesReducer = produce((draftState: TogglesState, action: ToggleAction) => {
+const togglesReducer = (prevState: TogglesState, action: ToggleAction) => {
   const { toggleKey } = action
-
   // flip target key
-  draftState[toggleKey] = !draftState[toggleKey]
+  const draftState = {
+    ...prevState,
+    [toggleKey]: !prevState[toggleKey]
+  }
 
   // if state is valid, return it otherwise flip one of other keys
   return isValidState(draftState) ? draftState : adjustState(draftState, toggleKey)
-})
+}
 
 export const useToggles = () => {
   const [state, dispatch] = useReducer(togglesReducer, initialState)

@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import Toggle from 'react-toggle'
 import 'react-toggle/style.css'
 
-import { ToggleKey, TogglesState } from '../../hooks/useToggles'
+import { ToggleKey } from '../../hooks/useToggles'
+import { AppContext } from '../../App'
 
 import './toggles.css'
 
-interface TogglesProps {
-  state: TogglesState
-  onToggle: (stateKey: ToggleKey) => void
-}
+export const Toggles: React.FC = () => {
+  const context = useContext(AppContext)
+  if (!context) {
+    return null
+  }
 
-export const Toggles: React.FC<TogglesProps> = ({ state, onToggle}) => {
+  const { state, flipToggle } = context
+
   const keys = Object.keys(state) as ToggleKey[]
 
   return (
@@ -22,7 +25,7 @@ export const Toggles: React.FC<TogglesProps> = ({ state, onToggle}) => {
           <Toggle className={`Toggles__checkbox Toggles__checkbox--${k}`}
             icons={false}
             checked={state[k]}
-            onChange={() => onToggle(k)} />
+            onChange={() => flipToggle(k)} />
           <span className="Toggles__label">{k}</span>
         </div>
       ))}
