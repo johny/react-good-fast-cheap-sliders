@@ -19,9 +19,9 @@ const initialState: TogglesState = {
   cheap: false
 }
 
-const isValidState = (state: TogglesState) => !(state.good && state.fast && state.cheap)
+export const isValidState = (state: TogglesState) => !(state.good && state.fast && state.cheap)
 
-const adjustState = (draftState: TogglesState, key: ToggleKey) => {
+export const adjustState = (draftState: TogglesState, key: ToggleKey) => {
   // find previous key to flip
   const keyToUpdate = key === 'good' ? 'cheap' : key === 'fast' ? 'good' : 'fast'
 

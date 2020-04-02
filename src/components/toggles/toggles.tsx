@@ -25,8 +25,10 @@ export const Toggles: React.FC = () => {
           <Toggle className={`Toggles__checkbox Toggles__checkbox--${k}`}
             icons={false}
             checked={state[k]}
+            data-testid={`toggle-${k}`}
+            aria-labelledby={`toggle-${k}`}
             onChange={() => flipToggle(k)} />
-          <span className="Toggles__label">{k}</span>
+          <span className="Toggles__label" id={`toggle-${k}`}>{k}</span>
         </div>
       ))}
     </div>
